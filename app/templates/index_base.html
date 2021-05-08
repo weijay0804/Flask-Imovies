@@ -1,0 +1,104 @@
+<!--主頁模板-->
+
+{% extends 'base.html' %} 
+
+
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css') }}">
+{% endblock head %}
+
+{% block page_content %}
+
+    <div class="page-header">
+        {% block page_header %}
+            {% if current_user.is_authenticated %} 
+                <h3>歡迎回來 {{ current_user.username }}</h3> 
+            {% endif %}
+        {% endblock page_header %}
+    </div>
+    
+    <div class="page-content">
+        <div class="button-content">
+            {% block sort %}
+            {% endblock sort %}
+        </div>
+        <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>名稱</td>
+                    <td>片長</td>
+                    <td>類型</td>
+                    <td>上映日期</td>
+                    <td>評分</td>
+                    <td></td>
+                </td>
+            </thead>
+            
+            <tbody>
+                {% for movie in movies %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td class="movie_image">
+                        
+                        <img src="{{ movie.img_link }}">
+                    </td>
+                    <td class="title">
+                        <div>
+                            <a href="{{ movie.movie_link }}" target="_blank">
+                                {{ movie.title }} 
+                            </a>
+                        </div>
+                        {% if movie.original_title %} 
+                            {{ movie.original_title }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if movie.movie_time %}
+                            {{ movie.movie_time }}
+                        {% endif %}
+                    </td>
+                    <td class="movie_type">
+                        {{ movie.movie_type }}
+                    </td>
+                    <td>
+                        {{ movie.year }}
+                    </td>
+                    <td>
+                        {% if movie.rate %} 
+                            {{ movie.rate}}
+                        {% endif %}
+                    </td>
+                    {% if current_user.is_authenticated %}
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                加入清單
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="{{ url_for('main.add_movie', id = movie.id) }}">加入觀看清單</a></li>
+                              <li><a class="dropdown-item" href="{{ movie.movie_link }}" target="_blank">前往IMDb</a></li>
+                        </div>
+                    </td>
+                    {% endif %} 
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+        <div class="pagination_contnet">
+            {% block pagination %}
+            {% endblock pagination %}
+        </div>
+    </div>   
+{% endblock page_content %}
+
+
+{% block scripts %} 
+    {{ super() }}
+{% endblock scripts %}

@@ -1,0 +1,73 @@
+table {
+    margin: auto;
+    border: 0;
+    border-collapse: separate;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 2px;
+    border-spacing:0px 10px;
+    font-size: 17px;
+    font-family: 'Noto Sans TC', sans-serif;
+    
+}
+
+.page-header {
+    width: 100%;
+    margin: 10px 0;
+    border-bottom: 1px solid cadetblue;
+}
+
+table tbody tr:hover {
+    background-color: rgb(217, 226, 226);
+}
+
+table tbody tr .movie_type {
+    width: 50px;
+}
+
+table tbody tr .title {
+    width: 30%;
+}
+table tbody tr .title a{
+    text-decoration: none;
+}
+
+
+nav .pagination {
+    margin-top: 30px;
+}
+
+.button-content {
+    float: right;
+}
+
+
+
+.movie_image {
+    width: 70;
+    height: 70;
+}
+
+@media screen and (max-width: 760px ){
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    table {
+        margin: auto;
+        border: 0;
+        border-collapse: separate;
+        border-radius: 8px;
+        width: 100%;
+        text-align: center;
+        padding: 10px 2px;
+        border-spacing:0px 10px;
+        font-size: 10px;
+        
+    }
+}

@@ -1,0 +1,16 @@
+<!--未確認使用者頁面模板-->
+
+{% extends 'base.html' %} 
+
+{% block title %} Imovies - Unconfirmed {% endblock title %} 
+
+{% block page_content %} 
+    <div class="page-header">
+        <h1>Hello, {{ current_user.username }}</h1>
+    </div>
+    <div class="content">
+        <p>您還沒認證您的帳號，請前往您的信箱查看。</p>
+        <p>沒有收到認證信件嗎?</p>
+        <p><a href="{{ url_for('auth.resend_confirmation') }}">點這重新寄</a></p>
+    </div> 
+{% endblock page_content %}

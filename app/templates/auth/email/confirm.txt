@@ -1,0 +1,13 @@
+使用者 {{ user.username }}
+
+歡迎來到 Imovies
+
+請點選下方連結來認證並啟用您的帳戶:
+
+{{ url_for('auth.confirm', token = token, _external = True )}}
+
+真誠地歡迎您
+
+Imovies 團隊敬上
+
+備註:請不要回覆此信件。

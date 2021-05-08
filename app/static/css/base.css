@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#button {
+    background-color: 	#40E0D0;
+    margin-top: 5px;
+}
+
+nav {
+    font-size: 20px;
+}
+
+
+.container {
+    width: 100%;
+}
+
+.errors {
+    text-align: center;
+    margin: auto;
+}
+
+.dropdown-menu {
+    background-color: rgb(33,37,41);
+    border: none;
+
+}
+
+.dropdown-item {
+    color:  rgba(255, 255, 255, 0.55);
+}
+
+
+.warp {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+h1 {
+    font-family: 'Noto Sans TC', sans-serif;
+}

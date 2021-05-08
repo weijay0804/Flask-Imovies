@@ -1,0 +1,19 @@
+<!--使用者更改密碼模板-->
+
+<p>使用者 {{ user.username }}</p>
+
+<p>歡迎來到 Imovies</p>
+
+<p>請點選下方連結來確認您的email:</p>
+
+<p><a href="{{ url_for('auth.change_email', token = token, _external = True ) }}">更改email</a></p>
+
+<p>或者您可以直接前往以下連結</p>
+
+<p>{{ url_for('auth.change_email', token = token, _external = True) }}</p>
+
+<p>真誠地歡迎您</p>
+
+<p>Imovies 團隊敬上</p>
+
+<p>備註:請不要回覆此信件。</p>

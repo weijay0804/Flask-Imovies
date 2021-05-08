@@ -1,0 +1,15 @@
+<!--使用者註冊頁面模板-->
+
+{% extends 'auth/login.html' %} 
+{% import 'bootstrap/wtf.html' as wtf %} 
+
+{% block title %} Imovie - Registration {% endblock title %} 
+
+{% block page_content %} 
+    <div class="page-header">
+        <h1>Login</h1>
+    </div>
+    <div class="form_content">
+        {{ wtf.quick_form(form) }}
+    </div>
+{% endblock page_content %}

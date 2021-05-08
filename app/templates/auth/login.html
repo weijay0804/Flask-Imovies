@@ -1,0 +1,27 @@
+<!--使用者登入頁面模板-->
+
+{% extends 'base.html' %} 
+{% import 'bootstrap/wtf.html' as wtf %} 
+
+{% block head %} 
+    {{ super() }}
+    <link href="{{ url_for('static', filename = 'css/login.css') }}" rel="stylesheet">
+{% endblock head %}
+
+{% block title %} Imovies - Login {% endblock title %} 
+
+{% block page_content %} 
+    <div class="page-header">
+        <h1>Login</h1>
+    </div>
+    <div class="form_content">
+        {{ wtf.quick_form(form) }}
+    </div>
+    <p>還不是會員嗎?
+        <a href="{{ url_for('auth.registration') }}">註冊</a>
+    </p>
+    <p>
+        忘記密碼嗎?
+        <a href="{{ url_for('auth.password_rest_requset') }}">重新設定密碼</a>
+    </p>
+{% endblock page_content %}

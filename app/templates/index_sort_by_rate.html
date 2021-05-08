@@ -1,0 +1,31 @@
+{% extends 'index_base.html' %} 
+{% import '_macros.html' as macros %}
+
+{% block title %} Imovies - Most Hot {% endblock title %}
+
+{% block page_header %}
+            <h1>Most Hot Movies</h1>
+            {{ super() }}
+{% endblock page_header %}
+
+{% block page_content %} 
+    {{ super() }}
+{% endblock page_content %}
+
+{% block sort %} 
+    <div class="btn-group">
+        <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            排序
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{ url_for('main.index_sort_by_rate') }}">評分</a></li>
+    </div>
+{% endblock sort %}
+
+
+{% block pagination %}
+{% if pagination %}
+    {{ macros.pagination_widget(pagination, '.index_sort_by_rate') }}
+{% endif %}
+{% endblock pagination %}
+        

@@ -1,0 +1,94 @@
+<!--使用者已觀看電影清單頁面模板-->
+{% extends 'base.html' %} 
+{% import '_macros.html' as macros %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css') }}">
+{% endblock head %}
+
+{% block page_content %} 
+    <div class="page-header">
+        {% block header_title %} 
+        <h1>{{ current_user.username }} 的電影清單</h1>
+        {% endblock header_title %}
+        你的清單裡有 {{ movie_lists | length  }} 部電影
+    </div>
+    <div class="page-content">
+        {% if movies | length == 0 %} 
+            <h2>清單裡沒有電影喔，過去找些電影吧!</h2>
+        {% else %}
+        <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>名稱</td>
+                    <td>片長</td>
+                    <td>類型</td>
+                    <td>上映日期</td>
+                    <td>評分</td>
+                    <td></td>
+                </td>
+            </thead>
+            
+            <tbody>
+                {% for movie in movies %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td class="movie_image">
+                        
+                        <img src="{{ movie.img_link }}">
+                    </td>
+                    <td class="title">
+                        <div>
+                            <a href="{{ movie.movie_link }}" target="_blank">
+                                {{ movie.title }} 
+                            </a>
+                        </div>
+                        {% if movie.original_title %} 
+                            {{ movie.original_title }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if movie.movie_time %}
+                            {{ movie.movie_time }}
+                        {% endif %}
+                    </td>
+                    <td class="movie_type">
+                        {{ movie.movie_type }}
+                    </td>
+                    <td>
+                        {{ movie.year }}
+                    </td>
+                    <td>
+                        {% if movie.rate %} 
+                            {{ movie.rate}}
+                        {% endif %}
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                加入清單
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="{{ url_for('main.add_watched_movie', id = movie.id) }}">加入已觀看清單</a></li>
+                              <li><a class="dropdown-item" href="{{ url_for('main.delete_movie', id = movie.id) }}">刪除電影</a></li>
+                              <li><a class="dropdown-item" href="{{ movie.movie_link }}" target="_blank">前往IMDb</a></li>
+                            </ul>
+                          </div>
+                    </td> 
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        {% endif %}
+        <div class="pagination_contnet">
+            {% if pagination %}
+                {{ macros.pagination_widget(pagination, '.user_movie_list') }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock page_content %}

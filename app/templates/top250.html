@@ -1,0 +1,32 @@
+<!--top250頁面模板-->
+
+{% extends 'index_base.html' %} 
+{% import '_macros.html' as macros %}
+
+{% block title %} Imovies - Top Rate {% endblock title %}
+
+{% block page_header %}
+            <h1>Top Rate Movies</h1>
+            {{ super() }}
+{% endblock page_header %}
+
+{% block page_content %} 
+    {{ super() }}
+{% endblock page_content %}
+
+{% block sort %} 
+    <div class="btn-group">
+        <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            排序
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{ url_for('main.top250_sort_by_rate') }}">評分</a></li>
+    </div>
+{% endblock sort %}
+
+
+{% block pagination %}
+{% if pagination %}
+    {{ macros.pagination_widget(pagination, '.top250') }}
+{% endif %}
+{% endblock pagination %}

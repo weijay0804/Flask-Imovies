@@ -11,6 +11,8 @@
 Imovies 就是來幫你解決這些問題的!
 Imovies 收集了 IMDB 上熱門和TOP250的電影，並讓使用者建立一個專屬於自己的電影清單。
 
+### Imovies 網頁
+https://flask-imovies.herokuapp.com/
 
 ### 使用方式
 clone 到你的電腦中 

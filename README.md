@@ -23,10 +23,6 @@ clone 到你的電腦中
     $ pip install -r requirements.txt
 ```
 
-初始化資料庫
-```powershell
-    $ flask deploy
-```
 
 #### 設定環境變數
 |||
@@ -34,6 +30,11 @@ clone 到你的電腦中
 | MAIL_USERNAME | <your_email_username> |
 | MAIL_PASSWORD | <your_email_password> |
 | FLASK_APP     | imovies.py            |
+
+初始化資料庫
+```powershell
+    $ flask deploy
+```
 
 #### 執行程式
 ``` powershell

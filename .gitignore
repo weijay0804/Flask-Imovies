@@ -6,8 +6,7 @@ __pycache__
 *.sqlite
 
 #資料文件
-hot_movies.txt
-top250.txt
+
 write_in_data.py
 
 #環境變數

@@ -11,6 +11,8 @@
 Imovies 就是來幫你解決這些問題的!
 Imovies 收集了 IMDB 上熱門和TOP250的電影，並讓使用者建立一個專屬於自己的電影清單。
 
+### Imovies 網頁
+https://flask-imovies.herokuapp.com/
 
 ### 使用方式
 clone 到你的電腦中 
@@ -23,10 +25,6 @@ clone 到你的電腦中
     $ pip install -r requirements.txt
 ```
 
-初始化資料庫
-```powershell
-    $ flask deploy
-```
 
 #### 設定環境變數
 |||
@@ -34,6 +32,11 @@ clone 到你的電腦中
 | MAIL_USERNAME | <your_email_username> |
 | MAIL_PASSWORD | <your_email_password> |
 | FLASK_APP     | imovies.py            |
+
+初始化資料庫
+```powershell
+    $ flask deploy
+```
 
 #### 執行程式
 ``` powershell

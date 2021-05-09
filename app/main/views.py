@@ -26,7 +26,7 @@ def after_request(response):
 @main.route('/')
 def index():
     page = request.args.get('page', 1, type=int)
-    pagination = Movie.query.filter((Movie.source == 'hot_movie') | (Movie.source == 'hot_top_movie')).order_by(Movie.write_in_time.desc()).paginate(
+    pagination = Movie.query.filter((Movie.source == 'hot_movie') | (Movie.source == 'hot_top_movie')).order_by(Movie.write_in_time.desc().nullslast()).paginate(
                                     page, per_page = current_app.config['IMOVIES_MOVIES_PER_PAGE'], error_out = False)
     # movies = Movie.query.order_by(Movie.rate.desc()).all() #使用降冪排序
     movies = pagination.items
@@ -46,7 +46,7 @@ def index_sort_by_rate():
     for movie in movies:
         if movie.rate is None:
             movie.rate = 0
-    movies = sorted(movies, key=lambda x : x.rate, reverse=True)
+    # movies = sorted(movies, key=lambda x : x.rate, reverse=True)
     return render_template('index_sort_by_rate.html', movies = movies, pagination = pagination)
 
 

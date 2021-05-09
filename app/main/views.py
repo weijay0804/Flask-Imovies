@@ -46,7 +46,7 @@ def index_sort_by_rate():
     for movie in movies:
         if movie.rate is None:
             movie.rate = 0
-    # movies = sorted(movies, key=lambda x : x.rate, reverse=True)
+    movies = sorted(movies, key=lambda x : x.rate, reverse=True)
     return render_template('index_sort_by_rate.html', movies = movies, pagination = pagination)
 
 

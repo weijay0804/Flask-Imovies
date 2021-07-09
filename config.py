@@ -21,7 +21,7 @@ class Config:
     SQLALCHEMY_RECORD_QUERIES = True
     IMOVIES_SLOW_DB_QUERY_TIME = 0.5
     SSL_REDIRECT = False
-
+    
     @staticmethod
     def init_app(app):
         pass
